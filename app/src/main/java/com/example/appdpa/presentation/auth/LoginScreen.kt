@@ -21,9 +21,10 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
 
 @Composable
-fun LoginScreen(){
+fun LoginScreen(navController: NavController){
     var email by remember{ mutableStateOf("")}
     var password by remember{ mutableStateOf("")}
 
@@ -34,7 +35,7 @@ fun LoginScreen(){
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        Text("Login Screen", style = MaterialTheme.typography.titleLarge)
+        Text("Iniciar Sesión", style = MaterialTheme.typography.titleLarge)
         OutlinedTextField(
             value = email,
             onValueChange = { email = it },
@@ -51,9 +52,12 @@ fun LoginScreen(){
             modifier = Modifier.fillMaxWidth()
         )
 
-        Spacer(modifier = Modifier.height(16.dp))
+        Spacer(modifier = Modifier.height(24.dp))
 
-        Button(onClick = { }) {
+        Button(
+            // Si las credenciales son correctas, navegar a la pantalla de inicio
+            onClick = { navController.navigate("home")
+            }) {
             Text("Iniciar Sesión")
         }
     }
