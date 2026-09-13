@@ -11,6 +11,8 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import com.example.appdpa.presentation.auth.LoginScreen
+import com.example.appdpa.presentation.auth.RegisterScreen
 import com.example.appdpa.ui.theme.AppDPATheme
 
 class MainActivity : ComponentActivity() {
@@ -19,12 +21,14 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             AppDPATheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
-                        name = "Android",
-                        modifier = Modifier.padding(innerPadding)
-                    )
-                }
+                RegisterScreen()
+                //LoginScreen()
+/*//                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
+//                    Greeting(
+//                        name = "Android",
+//                        modifier = Modifier.padding(innerPadding)
+//
+                })*/
             }
         }
     }
